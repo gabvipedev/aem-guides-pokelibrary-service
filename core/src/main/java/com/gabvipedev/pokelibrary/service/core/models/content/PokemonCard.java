@@ -57,6 +57,7 @@ public class PokemonCard {
     @PostConstruct
     protected void init() throws IOException {
         pokemon = pokeApiService.getPokemon(1);
+        pokeApiService.getSpecie(2);
 
         EvolutionChain evolutionChain = pokeApiService.getEvolutionChain(1);
 
