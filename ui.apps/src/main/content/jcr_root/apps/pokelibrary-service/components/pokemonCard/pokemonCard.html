@@ -1,0 +1,14 @@
+<sly data-sly-use.model="com.gabvipedev.pokelibrary.service.core.models.content.PokemonCard">
+    <div class="pokemonCard">
+        <div>
+            <p>Name: ${model.pokemon.name}</p>
+            <p>Id: ${model.pokemon.id}</p>
+            <p>BaseExperience: ${model.pokemon.baseExperience}</p>
+            <p>Order: ${model.pokemon.order}</p>
+        </div>
+    </div>
+    <h1>POKEMON MOVES</h1>
+    <ul data-sly-list="${model.movesNames}">
+        <li>${item}</li>
+    </ul>
+</sly>

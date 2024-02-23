@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/pokelibrary-service",
+        "create path (nt:unstructured) /content/dam/pokelibrary-service/jcr:content",
+        "set properties on /content/dam/pokelibrary-service/jcr:content\n  set cq:conf{String} to /conf/pokelibrary-service\n  set jcr:title{String} to \"PokeLibrary Service Project\"\nend"
+    ]
+}
