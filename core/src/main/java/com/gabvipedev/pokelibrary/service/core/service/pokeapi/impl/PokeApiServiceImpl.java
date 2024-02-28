@@ -8,10 +8,28 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryfir
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryflavor.BerryFlavor;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.contesteffect.ContestEffect;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.contesttype.ContestType;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.encountercondition.EncounterCondition;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.encounterconditionvalue.EncounterConditionValue;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.encountermethod.EncounterMethod;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutionchain.EvolutionChain;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutiontrigger.EvolutionTrigger;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.generation.Generation;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.item.Item;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.itemattribute.ItemAttribute;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.itemcategory.ItemCategory;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.itemflingeffect.ItemFlingEffect;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.itempocket.ItemPocket;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.location.Location;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.locationarea.LocationArea;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.machine.Machine;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.move.Move;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokedex.Pokedex;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.Pokemon;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemonspecies.PokemonSpecies;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.region.Region;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.supercontesteffect.SuperContestEffect;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.version.Version;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.versiongroup.VersionGroup;
 import com.gabvipedev.pokelibrary.service.core.utils.PokeApiUtils;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -53,23 +71,15 @@ public class PokeApiServiceImpl implements PokeApiService {
     public Pokemon getPokemon(int idOrName) throws IOException {
         return getPokeApiData(configuration.pokemonEndpoint() + "/" + idOrName, Pokemon.class);
     }
-
     @Override
     public List<Pokemon> getAllPokemons() throws IOException {
         String endpoint = configuration.pokemonEndpoint();
         return getPokeApiData(endpoint, List.class);
     }
-
     @Override
     public Move getMove(int idOrName) throws IOException {
         return getPokeApiData(configuration.moveEndpoint() + "/" + idOrName, Move.class);
     }
-
-    @Override
-    public EvolutionChain getEvolutionChain(int id) throws IOException {
-        return getPokeApiData(configuration.evolutionEndpoint() + "/" + id, EvolutionChain.class);
-    }
-
     public List<PokemonSpecies> getSpecies(List<Integer> ids) throws IOException {
         List<PokemonSpecies> speciesList = new ArrayList<>();
         for (int id : ids) {
@@ -78,11 +88,9 @@ public class PokeApiServiceImpl implements PokeApiService {
         }
         return speciesList;
     }
-
     public PokemonSpecies getSpecie(int id) throws IOException {
         return getPokeApiData(configuration.speciesEndpoint() + "/" + id, PokemonSpecies.class);
     }
-
     public Berry getBerry(String idName) throws IOException{
         return getPokeApiData(configuration.berryEndpoint() + "/" + idName, Berry.class);
     }
@@ -98,6 +106,79 @@ public class PokeApiServiceImpl implements PokeApiService {
     public ContestEffect getContestEffect(String idName) throws IOException{
         return getPokeApiData(configuration.contestEffectEndpoint() + "/" + idName, ContestEffect.class);
     }
+    public SuperContestEffect getSuperContestEffect(int id) throws IOException{
+        return getPokeApiData(configuration.superContestEffectEndpoint() + "/" + id, SuperContestEffect.class);
+    }
+    public EncounterMethod getEncounterMethod(String idName) throws IOException{
+        return getPokeApiData(configuration.encounterMethodEndpoint() + "/" + idName, EncounterMethod.class);
+    }
+    public EncounterCondition getEncounterCondition(String idName) throws IOException{
+        return getPokeApiData(configuration.encounterConditionsEndpoint() + "/" + idName, EncounterCondition.class);
+    }
+    public EncounterConditionValue getEncounterConditionValue(String idName) throws IOException{
+        return getPokeApiData(configuration.encounterConditionsEndpoint() + "/" + idName, EncounterConditionValue.class);
+    }
+    @Override
+    public EvolutionChain getEvolutionChain(int id) throws IOException {
+        return getPokeApiData(configuration.evolutionEndpoint() + "/" + id, EvolutionChain.class);
+    }
+    @Override
+    public EvolutionTrigger getEvolutionTrigger(String idName) throws IOException {
+        return getPokeApiData(configuration.evolutionEndpoint() + "/" + idName, EvolutionTrigger.class);
+    }
+    @Override
+    public Generation getGeneration(String idName) throws IOException {
+        return getPokeApiData(configuration.generationEndpoint() + "/" + idName, Generation.class);
+    }
+    @Override
+    public Pokedex getPokedex(String idName) throws IOException {
+        return getPokeApiData(configuration.pokedexEndpoint() + "/" + idName, Pokedex.class);
+    }
+    @Override
+    public Version getVersion(String idName) throws IOException {
+        return getPokeApiData(configuration.versionEndpoint() + "/" + idName, Version.class);
+    }
+    @Override
+    public VersionGroup getVersionGroup(String idName) throws IOException {
+        return getPokeApiData(configuration.versionGroupEndpoint() + "/" + idName, VersionGroup.class);
+    }
+    @Override
+    public Item getItem(String idName) throws IOException {
+        return getPokeApiData(configuration.itemEndpoint() + "/" + idName, Item.class);
+    }
+    @Override
+    public ItemAttribute getItemAttribute(String idName) throws IOException {
+        return getPokeApiData(configuration.itemAttributesEndpoint() + "/" + idName, ItemAttribute.class);
+    }
+    @Override
+    public ItemCategory getItemCategory(String idName) throws IOException {
+        return getPokeApiData(configuration.itemCategoriesEndpoint() + "/" + idName, ItemCategory.class);
+    }
+    @Override
+    public ItemFlingEffect getItemFlingEffect(String idName) throws IOException {
+        return getPokeApiData(configuration.itemFlingEffectsEndpoint() + "/" + idName, ItemFlingEffect.class);
+    }
+    @Override
+    public ItemPocket getItemPocket(String idName) throws IOException {
+        return getPokeApiData(configuration.itemPocketEndpoint() + "/" + idName, ItemPocket.class);
+    }
+    @Override
+    public Location getLocation(String idName) throws IOException {
+        return getPokeApiData(configuration.locationEndpoint() + "/" + idName, Location.class);
+    }
+    @Override
+    public LocationArea getLocationArea(String idName) throws IOException {
+        return getPokeApiData(configuration.locationAreaEndpoint() + "/" + idName, LocationArea.class);
+    }
+    @Override
+    public Region getRegion(String idName) throws IOException {
+        return getPokeApiData(configuration.regionsEndpoint() + "/" + idName, Region.class);
+    }
+    @Override
+    public Machine getMachine(String idName) throws IOException {
+        return getPokeApiData(configuration.machineEndpoint() + "/" + idName, Machine.class);
+    }
+
 
     private <T> T getPokeApiData(String endpoint, Class<T> clazz) throws IOException {
         String apiUrl = configuration.pokeApiBaseUrl() + endpoint;

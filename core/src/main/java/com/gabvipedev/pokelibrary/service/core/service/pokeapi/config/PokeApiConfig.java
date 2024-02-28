@@ -34,6 +34,44 @@ public interface PokeApiConfig {
         String contestTypeEndpoint() default "contest-type";
         @AttributeDefinition(name = "Contest Type Endpoint", description = "The URL of the Berry Firmness endpoint")
         String contestEffectEndpoint() default "contest-effect";
+        @AttributeDefinition(name = "Supper Contest Effect Endpoint", description = "The URL of the Berry Firmness endpoint")
+        String superContestEffectEndpoint() default "super-contest-effect";
+        @AttributeDefinition(name = "EncounterMethod Endpoint", description = "The URL of the Berry Firmness endpoint")
+        String encounterMethodEndpoint() default "encounter-method";
+        @AttributeDefinition(name = "EncounterMethod Conditions", description = "The URL of the Berry Firmness endpoint")
+        String encounterConditionsEndpoint() default "encounter-condition";
+        @AttributeDefinition(name = "EncounterMethod Conditions Value", description = "The URL of the Berry Firmness endpoint")
+        String encounterConditionsValueEndpoint() default "encounter-condition-value";
+        @AttributeDefinition(name = "EncounterMethod Conditions Value", description = "The URL of the Berry Firmness endpoint")
+        String evolutionTriggerEndpoint() default "evolution-trigger";
+        @AttributeDefinition(name = "Generation", description = "The URL of the Berry Firmness endpoint")
+        String generationEndpoint() default "generation";
+        @AttributeDefinition(name = "Pokedex", description = "The URL of the Berry Firmness endpoint")
+        String pokedexEndpoint() default "pokedex";
+        @AttributeDefinition(name = "Version", description = "The URL of the Berry Firmness endpoint")
+        String versionEndpoint() default "version";
+        @AttributeDefinition(name = "Version Group", description = "The URL of the Berry Firmness endpoint")
+        String versionGroupEndpoint() default "version-group";
+        @AttributeDefinition(name = "Item", description = "The URL of the Berry Firmness endpoint")
+        String itemEndpoint() default "item";
+        @AttributeDefinition(name = "Item Attribute", description = "The URL of the Berry Firmness endpoint")
+        String itemAttributesEndpoint() default "item-attribute";
+        @AttributeDefinition(name = "Item Category", description = "The URL of the Berry Firmness endpoint")
+        String itemCategoriesEndpoint() default "item-category";
+        @AttributeDefinition(name = "Item Fling Effects", description = "The URL of the Berry Firmness endpoint")
+        String itemFlingEffectsEndpoint() default "item-fling-effect";
+        @AttributeDefinition(name = "Item Pocket", description = "The URL of the Berry Firmness endpoint")
+        String itemPocketEndpoint() default "item-pocket";
+        @AttributeDefinition(name = "Location", description = "The URL of the Berry Firmness endpoint")
+        String locationEndpoint() default "location";
+        @AttributeDefinition(name = "Location Area", description = "The URL of the Berry Firmness endpoint")
+        String locationAreaEndpoint() default "location-area";
+        @AttributeDefinition(name = "Pal Park Area", description = "The URL of the Berry Firmness endpoint")
+        String palParkAreasEndpoint() default "pal-park-area";
+        @AttributeDefinition(name = "Regions", description = "The URL of the Berry Firmness endpoint")
+        String regionsEndpoint() default "region";
+        @AttributeDefinition(name = "Machine", description = "The URL of the Berry Firmness endpoint")
+        String machineEndpoint() default "machine";
     }
 
 }
