@@ -17,13 +17,11 @@ package com.gabvipedev.pokelibrary.service.core.models.content;
 
 
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.PokeApiService;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.common.NamedAPIResource;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.evolution.EvolutionChain;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.moves.MoveDetail;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.pokemon.Move;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.pokemon.Pokemon;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.pokemon.Species;
-import com.gabvipedev.pokelibrary.service.core.service.pokeapi.beans.pokemon.species.PokemonSpecies;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutionchain.EvolutionChain;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.move.Move;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.Pokemon;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.PokemonMove;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemonspecies.PokemonSpecies;
 import com.gabvipedev.pokelibrary.service.core.utils.PokeApiUtils;
 import com.gabvipedev.pokelibrary.service.core.utils.StringUtils;
 import org.apache.sling.api.resource.Resource;
@@ -36,7 +34,6 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,8 +60,8 @@ public class PokemonCard {
 
         Map<String, PokemonSpecies> evolution = PokeApiUtils.getPokemonNamesFromChain(evolutionChain, pokeApiService);
 
-        List<Move> movesUrl = pokemon.getMoves();
-        for(Move move : movesUrl){
+        List<PokemonMove> movesUrl = pokemon.getMoves();
+        for(PokemonMove move : movesUrl){
            movesNames.add(StringUtils.capitalizeWords(move.getMove().getName()));
         }
     }
