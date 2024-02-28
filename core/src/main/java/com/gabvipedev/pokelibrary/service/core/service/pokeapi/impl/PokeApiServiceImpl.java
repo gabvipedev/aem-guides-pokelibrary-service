@@ -3,6 +3,11 @@ package com.gabvipedev.pokelibrary.service.core.service.pokeapi.impl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.PokeApiService;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.config.PokeApiConfig;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berry.Berry;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryfirmness.BerryFirmness;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryflavor.BerryFlavor;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.contesteffect.ContestEffect;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.contesttype.ContestType;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutionchain.EvolutionChain;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.move.Move;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.Pokemon;
@@ -76,6 +81,22 @@ public class PokeApiServiceImpl implements PokeApiService {
 
     public PokemonSpecies getSpecie(int id) throws IOException {
         return getPokeApiData(configuration.speciesEndpoint() + "/" + id, PokemonSpecies.class);
+    }
+
+    public Berry getBerry(String idName) throws IOException{
+        return getPokeApiData(configuration.berryEndpoint() + "/" + idName, Berry.class);
+    }
+    public BerryFirmness getBerryFirmness(String idName) throws IOException{
+        return getPokeApiData(configuration.berryFirmnessEndpoint() + "/" + idName, BerryFirmness.class);
+    }
+    public BerryFlavor getBerryFlavor(String idName) throws IOException{
+        return getPokeApiData(configuration.berryFirmnessEndpoint() + "/" + idName, BerryFlavor.class);
+    }
+    public ContestType getContestType(String idName) throws IOException{
+        return getPokeApiData(configuration.contestTypeEndpoint() + "/" + idName, ContestType.class);
+    }
+    public ContestEffect getContestEffect(String idName) throws IOException{
+        return getPokeApiData(configuration.contestEffectEndpoint() + "/" + idName, ContestEffect.class);
     }
 
     private <T> T getPokeApiData(String endpoint, Class<T> clazz) throws IOException {
