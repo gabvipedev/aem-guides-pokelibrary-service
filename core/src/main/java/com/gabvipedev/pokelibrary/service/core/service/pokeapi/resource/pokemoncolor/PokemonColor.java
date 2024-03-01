@@ -10,7 +10,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class PokemonColor implements PokeApiResource, Localizable {
+public class PokemonColor implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

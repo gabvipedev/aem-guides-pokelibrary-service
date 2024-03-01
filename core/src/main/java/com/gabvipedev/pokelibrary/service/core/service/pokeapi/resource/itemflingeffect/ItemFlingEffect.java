@@ -9,7 +9,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.item.Ite
 
 import java.util.List;
 
-public class ItemFlingEffect implements PokeApiResource {
+public class ItemFlingEffect implements PokeApiResource<PokeApiResource> {
 
 	private Integer id;
 	private String name;

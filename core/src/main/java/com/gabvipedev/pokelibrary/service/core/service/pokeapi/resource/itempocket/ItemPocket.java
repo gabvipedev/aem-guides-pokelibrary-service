@@ -10,7 +10,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class ItemPocket implements PokeApiResource, Localizable {
+public class ItemPocket implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

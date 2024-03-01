@@ -6,7 +6,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryfla
 
 import java.util.List;
 
-public class ContestType implements PokeApiResource {
+public class ContestType implements PokeApiResource<PokeApiResource> {
 
 	private Integer id;
 	private String name;

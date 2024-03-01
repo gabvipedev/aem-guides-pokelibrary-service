@@ -2,6 +2,7 @@ package com.gabvipedev.pokelibrary.service.core.service.pokeapi;
 
 
 
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.ability.Ability;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berry.Berry;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryfirmness.BerryFirmness;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryflavor.BerryFlavor;
@@ -27,6 +28,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemonspecies.PokemonSpecies;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.region.Region;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.supercontesteffect.SuperContestEffect;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.type.Type;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.version.Version;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.versiongroup.VersionGroup;
 import org.eclipse.jetty.util.IO;
@@ -65,4 +67,7 @@ public interface PokeApiService {
     LocationArea getLocationArea(String idName) throws  IOException;
     Region getRegion(String idName) throws IOException;
     Machine getMachine(String idName) throws IOException;
+    Ability getAbility(String idName) throws IOException;
+    Type getType(String idName) throws IOException;
+    <T> T getResource(String resourceName, Class<T> resourceType) throws IOException;
 }

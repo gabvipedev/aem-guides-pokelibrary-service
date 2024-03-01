@@ -12,7 +12,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class Pokedex implements PokeApiResource, Localizable {
+public class Pokedex implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

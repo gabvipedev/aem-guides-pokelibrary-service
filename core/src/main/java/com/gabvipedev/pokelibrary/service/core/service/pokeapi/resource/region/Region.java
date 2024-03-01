@@ -13,7 +13,7 @@ import java.util.List;
 
 
 
-public class Region implements PokeApiResource, Localizable {
+public class Region implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private List<NamedApiResource<Location>> locations;

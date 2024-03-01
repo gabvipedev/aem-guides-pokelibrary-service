@@ -11,7 +11,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class PokemonForm implements PokeApiResource, Localizable {
+public class PokemonForm implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

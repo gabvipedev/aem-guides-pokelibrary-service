@@ -11,4 +11,18 @@
     <ul data-sly-list="${model.movesNames}">
         <li>${item}</li>
     </ul>
+    <div class="polemonAbility">
+        <h1>POKEMON MOVES</h1>
+        <ul data-sly-list="${model.abilities}">
+            <li>${item.name}</li>
+            <sly data-sly-list.entry="${item.effectEntries}">
+                <h2>EFFECTS: </h2>
+                <li>${entry.effect}</li>
+            </sly>
+            <sly data-sly-list.pokemon="${item.pokemon}">
+                <h2>POKEMONS: </h2>
+                <li>${pokemon.pokemon.name}</li>
+            </sly>
+        </ul>
+    </div>
 </sly>

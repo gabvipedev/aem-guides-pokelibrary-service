@@ -11,7 +11,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.version.
 
 import java.util.List;
 
-public class VersionGroup implements PokeApiResource {
+public class VersionGroup implements PokeApiResource<PokeApiResource> {
 
 	private Integer id;
 	private String name;

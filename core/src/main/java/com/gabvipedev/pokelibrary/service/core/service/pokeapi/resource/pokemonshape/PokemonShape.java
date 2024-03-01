@@ -10,7 +10,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class PokemonShape implements PokeApiResource, Localizable {
+public class PokemonShape implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

@@ -15,7 +15,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class Move implements PokeApiResource, Localizable {
+public class Move implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

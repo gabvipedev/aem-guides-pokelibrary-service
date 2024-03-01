@@ -72,6 +72,10 @@ public interface PokeApiConfig {
         String regionsEndpoint() default "region";
         @AttributeDefinition(name = "Machine", description = "The URL of the Berry Firmness endpoint")
         String machineEndpoint() default "machine";
+        @AttributeDefinition(name = "Machine", description = "The URL of the Berry Firmness endpoint")
+        String abilitiesEndpoint() default "ability";
+        @AttributeDefinition(name = "Type", description = "The URL of the Berry Firmness endpoint")
+        String typeEndpoint() default "type";
     }
 
 }

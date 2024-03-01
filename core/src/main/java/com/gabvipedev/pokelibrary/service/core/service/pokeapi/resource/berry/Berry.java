@@ -9,7 +9,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.item.Ite
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.type.Type;
 
 
-public class Berry implements PokeApiResource {
+public class Berry implements PokeApiResource<PokeApiResource> {
 
 	private Integer id;
 	private String name;

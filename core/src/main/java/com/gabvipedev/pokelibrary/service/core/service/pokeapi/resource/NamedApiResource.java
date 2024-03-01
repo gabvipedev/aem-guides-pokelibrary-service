@@ -1,6 +1,6 @@
 package com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource;
 
-public class NamedApiResource<T extends PokeApiResource> {
+public class NamedApiResource<T extends PokeApiResource<PokeApiResource>> {
 
 	private String name;
 	private String url;

@@ -13,7 +13,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class Generation implements PokeApiResource, Localizable {
+public class Generation implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

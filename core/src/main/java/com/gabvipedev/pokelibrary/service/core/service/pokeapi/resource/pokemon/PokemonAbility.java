@@ -28,5 +28,7 @@ public class PokemonAbility {
 	public void setAbility(NamedApiResource<Ability> ability) {
 		this.ability = ability;
 	}
+
+
 	
 }

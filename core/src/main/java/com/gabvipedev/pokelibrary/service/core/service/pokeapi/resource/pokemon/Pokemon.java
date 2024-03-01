@@ -9,7 +9,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemons
 
 import java.util.List;
 
-public class Pokemon implements  PokeApiResource {
+public class Pokemon implements  PokeApiResource<PokeApiResource> {
 
 	private Integer id;
 	private String name;

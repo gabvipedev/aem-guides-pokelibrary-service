@@ -9,7 +9,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class EncounterCondition implements PokeApiResource, Localizable {
+public class EncounterCondition implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

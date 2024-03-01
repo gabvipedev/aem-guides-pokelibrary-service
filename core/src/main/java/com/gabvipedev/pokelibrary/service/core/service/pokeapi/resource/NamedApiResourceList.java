@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-public class NamedApiResourceList<T extends PokeApiResource> implements PokeApiResource {
+public class NamedApiResourceList<T extends PokeApiResource<PokeApiResource>> implements PokeApiResource<PokeApiResource> {
 
 	private Integer count;
 	private String next;

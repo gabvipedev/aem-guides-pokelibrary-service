@@ -17,11 +17,14 @@ package com.gabvipedev.pokelibrary.service.core.models.content;
 
 
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.PokeApiService;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.ability.Ability;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutionchain.EvolutionChain;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.move.Move;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.Pokemon;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.PokemonMove;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.PokemonType;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemonspecies.PokemonSpecies;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.type.Type;
 import com.gabvipedev.pokelibrary.service.core.utils.PokeApiUtils;
 import com.gabvipedev.pokelibrary.service.core.utils.StringUtils;
 import org.apache.sling.api.resource.Resource;
@@ -50,6 +53,7 @@ public class PokemonCard {
     private Pokemon pokemon;
     List<String> movesNames = new ArrayList<>();
 
+    List<Ability> abilities = new ArrayList<>();
 
     @PostConstruct
     protected void init() throws IOException {
@@ -59,7 +63,8 @@ public class PokemonCard {
         EvolutionChain evolutionChain = pokeApiService.getEvolutionChain(1);
 
         Map<String, PokemonSpecies> evolution = PokeApiUtils.getPokemonNamesFromChain(evolutionChain, pokeApiService);
-
+        abilities = PokeApiUtils.getPokemonAbility(pokeApiService, pokemon);
+        List<Type> types = PokeApiUtils.getPokemonTypes(pokeApiService, pokemon);
         List<PokemonMove> movesUrl = pokemon.getMoves();
         for(PokemonMove move : movesUrl){
            movesNames.add(StringUtils.capitalizeWords(move.getMove().getName()));
@@ -72,5 +77,17 @@ public class PokemonCard {
 
     public List<String> getMovesNames() {
         return movesNames;
+    }
+
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<Ability> abilities) {
+        this.abilities = abilities;
+    }
+
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
     }
 }

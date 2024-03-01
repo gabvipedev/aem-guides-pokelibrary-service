@@ -10,7 +10,7 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class MoveLearnMethod implements PokeApiResource, Localizable {
+public class MoveLearnMethod implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

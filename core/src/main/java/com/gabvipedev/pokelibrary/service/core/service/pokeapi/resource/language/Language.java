@@ -7,7 +7,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.PokeApiR
 import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 
-public class Language implements PokeApiResource, Localizable {
+public class Language implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;

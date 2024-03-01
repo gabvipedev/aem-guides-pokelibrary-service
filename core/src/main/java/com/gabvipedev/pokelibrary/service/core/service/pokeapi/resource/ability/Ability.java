@@ -2,6 +2,7 @@ package com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.ability
 
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.Name;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.NamedApiResource;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.PokeApiResource;
@@ -11,15 +12,19 @@ import com.gabvipedev.pokelibrary.service.core.utils.locale.Localizable;
 
 import java.util.List;
 
-public class Ability implements PokeApiResource, Localizable {
+public class Ability implements PokeApiResource<PokeApiResource>, Localizable {
 
 	private Integer id;
 	private String name;
+	@JsonProperty("is_main_series")
 	private Boolean isMainSeries;
 	private NamedApiResource<Generation> generation;
 	private List<Name> names;
+	@JsonProperty("effect_entries")
 	private List<VerboseEffect> effectEntries;
+	@JsonProperty("effect_changes")
 	private List<AbilityEffectChange> effectChanges;
+	@JsonProperty("flavor_text_entries")
 	private List<AbilityFlavorText> flavorTextEntries;
 	private List<AbilityPokemon> pokemon;
 	

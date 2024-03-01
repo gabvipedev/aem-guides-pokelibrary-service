@@ -7,7 +7,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.move.Mov
 
 import java.util.List;
 
-public class MoveCategory implements PokeApiResource {
+public class MoveCategory implements PokeApiResource<PokeApiResource> {
 
 	private Integer id;
 	private String name;

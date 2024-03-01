@@ -6,9 +6,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.PokeApiService;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.NamedApiResource;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.PokeApiResource;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.ability.Ability;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutionchain.ChainLink;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.evolutionchain.EvolutionChain;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.Pokemon;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.PokemonAbility;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.PokemonType;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemonspecies.PokemonSpecies;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.type.Type;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -66,5 +72,41 @@ public class PokeApiUtils {
         }
         return pokemonMap;
     }
+
+    /**
+     *
+     * @param pokeApiService
+     * @param pokemon
+     * @return
+     * @throws IOException
+     */
+    public static List<Ability> getPokemonAbility(PokeApiService pokeApiService, Pokemon pokemon) throws IOException {
+        List<Ability> result = new ArrayList<>();
+        if(!pokemon.getAbilities().isEmpty()){
+            for(PokemonAbility abilityResource : pokemon.getAbilities()){
+                NamedApiResource<Ability> resource = abilityResource.getAbility();
+                if(resource.getName() !=null){
+                    result.add(pokeApiService.getAbility(resource.getName()));
+                }
+
+            }
+        }
+        return  result;
+    }
+
+    public static List<Type> getPokemonTypes(PokeApiService pokeApiService, Pokemon pokemon) throws IOException{
+        List<Type> result = new ArrayList<>();
+        if(!pokemon.getTypes().isEmpty()){
+            for(PokemonType typeResource: pokemon.getTypes()){
+                NamedApiResource<Type> resource = typeResource.getType();
+                if(resource.getName() != null){
+                    result.add(pokeApiService.getType(resource.getName()));
+                }
+            }
+        }
+        return result;
+    }
+
+
 
 }

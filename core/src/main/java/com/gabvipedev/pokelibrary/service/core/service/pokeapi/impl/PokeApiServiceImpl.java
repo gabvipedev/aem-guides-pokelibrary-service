@@ -3,6 +3,7 @@ package com.gabvipedev.pokelibrary.service.core.service.pokeapi.impl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.PokeApiService;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.config.PokeApiConfig;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.ability.Ability;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berry.Berry;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryfirmness.BerryFirmness;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.berryflavor.BerryFlavor;
@@ -28,6 +29,7 @@ import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemon.
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.pokemonspecies.PokemonSpecies;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.region.Region;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.supercontesteffect.SuperContestEffect;
+import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.type.Type;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.version.Version;
 import com.gabvipedev.pokelibrary.service.core.service.pokeapi.resource.versiongroup.VersionGroup;
 import com.gabvipedev.pokelibrary.service.core.utils.PokeApiUtils;
@@ -177,6 +179,18 @@ public class PokeApiServiceImpl implements PokeApiService {
     @Override
     public Machine getMachine(String idName) throws IOException {
         return getPokeApiData(configuration.machineEndpoint() + "/" + idName, Machine.class);
+    }
+
+    @Override
+    public Ability getAbility(String idName) throws IOException {
+        return getPokeApiData(configuration.abilitiesEndpoint() + "/" + idName, Ability.class);
+    }
+    @Override
+    public Type getType(String idName) throws IOException {
+        return getPokeApiData(configuration.typeEndpoint() + "/" + idName, Type.class);
+    }
+    public <T> T getResource(String resourceName, Class<T> resourceType) throws IOException {
+        return getPokeApiData(resourceName, resourceType);
     }
 
 
